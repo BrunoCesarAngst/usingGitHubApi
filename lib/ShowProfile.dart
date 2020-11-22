@@ -166,7 +166,7 @@ class ProfileState extends State<ShowProfile> {
                   children: <Widget>[
                     new Icon(Icons.code, size: 100.0),
                     new Text("Overview",
-                        style: Theme.of(context).textTheme.display2),
+                        style: Theme.of(context).textTheme.headline4),
                   ],
                 )
               ),
@@ -202,7 +202,7 @@ class ProfileState extends State<ShowProfile> {
               children: <Widget>[
                 new Text(
                   "$user have No Repo",
-                  style: Theme.of(context).textTheme.display1
+                  style: Theme.of(context).textTheme.headline4
                 )
               ]
           ),
@@ -234,7 +234,7 @@ class ProfileState extends State<ShowProfile> {
             children: <Widget>[
               new Text(
                 "$user have No Gists",
-                style: Theme.of(context).textTheme.display1
+                style: Theme.of(context).textTheme.headline4
               )
             ]
         ),
@@ -262,7 +262,7 @@ class ProfileState extends State<ShowProfile> {
           children: <Widget>[
             new Text(
               "$user haven't starred any repo",
-              style: Theme.of(context).textTheme.display1
+              style: Theme.of(context).textTheme.headline4
             )
           ]
         ),
@@ -294,7 +294,7 @@ class ProfileState extends State<ShowProfile> {
             children: <Widget>[
               new Text(
                 "$user is not following to anyone",
-                style: Theme.of(context).textTheme.display1
+                style: Theme.of(context).textTheme.headline4
               )
             ]
         ),
@@ -326,7 +326,7 @@ class ProfileState extends State<ShowProfile> {
           children: <Widget>[
             new Text(
               "$user have no Follower",
-              style: Theme.of(context).textTheme.display1
+              style: Theme.of(context).textTheme.headline4
             )
           ]
         ),

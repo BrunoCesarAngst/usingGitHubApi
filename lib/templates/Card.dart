@@ -57,7 +57,7 @@ class ProfileCard extends StatelessWidget {
                         children: <Widget>[
                           new Text(
                               text,
-                              style: Theme.of(context).textTheme.title
+                              style: Theme.of(context).textTheme.headline6
                             ),
                           new Padding(padding: EdgeInsets.only(bottom: 30.0)),
                           new Text('Public Repo : $publicRepos'),

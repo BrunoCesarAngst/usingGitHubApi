@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class Repo extends StatelessWidget {
   String name, description, language;
   final int stargazersCount, forksCount;
@@ -11,7 +12,7 @@ class Repo extends StatelessWidget {
       this.description = "No Description";
     }
     if(this.language == null){
-      this.language == "No Language";
+      this.language = "No Language";
     }
   }
 
