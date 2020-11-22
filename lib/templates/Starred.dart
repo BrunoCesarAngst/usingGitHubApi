@@ -5,7 +5,7 @@ class Starred extends StatelessWidget {
   String name, description, language;
   final int stargazersCount, forksCount;
 
-  Starred(this.name, this.stargazersCount, this.forksCount, this.language) {}
+  Starred(this.name, this.stargazersCount, this.forksCount, this.language);
 
 @override
   Widget build(BuildContext context) {
