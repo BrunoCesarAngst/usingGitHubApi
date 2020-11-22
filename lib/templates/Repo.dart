@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class Repo extends StatelessWidget {
   String name, description, language;
-  final int stargazersCount, forksCount;
+  final int stargazers_count, forks_count;
 
   Repo(
-    this.name, this.description, this.stargazersCount, this.forksCount,
+    this.name, this.description, this.stargazers_count, this.forks_count,
     this.language
       ) {
     if(this.description == null){
@@ -39,8 +39,8 @@ class Repo extends StatelessWidget {
                     ),
                     new Text("Language : $language"),
                     // new Text(description,maxLines: 12,),
-                    new Text("Star : $stargazersCount"),
-                    new Text("Fork : $forksCount"),
+                    new Text("Star : $stargazers_count"),
+                    new Text("Fork : $forks_count"),
                   ],
                 ),
               ),

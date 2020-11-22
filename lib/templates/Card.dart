@@ -3,7 +3,7 @@ import 'package:usingGithubApi/ShowProfile.dart';
 class ProfileCard extends StatelessWidget {
   ProfileCard(
     {
-      this.user, this.text, this.image, this.publicRepos, this.following,
+      this.user, this.text, this.image, this.public_repos, this.following,
       this.followers, this.animationController
     }
   );
@@ -11,7 +11,7 @@ class ProfileCard extends StatelessWidget {
   final String text;
   final String user;
   final String image;
-  final int publicRepos;
+  final int public_repos;
   final int followers;
   final int following;
   final AnimationController animationController;
@@ -60,7 +60,7 @@ class ProfileCard extends StatelessWidget {
                               style: Theme.of(context).textTheme.headline6
                             ),
                           new Padding(padding: EdgeInsets.only(bottom: 30.0)),
-                          new Text('Public Repo : $publicRepos'),
+                          new Text('Public Repo : $public_repos'),
                           new Padding(padding: EdgeInsets.only(bottom: 6.0)),
                           new Row(
                             children: <Widget>[

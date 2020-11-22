@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Gist extends StatelessWidget {
-  String description, createdAt;
-  Gist({this.description, this.createdAt});
+  String description, created_at;
+  Gist({this.description, this.created_at});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class Gist extends StatelessWidget {
                     style: TextStyle(fontSize: 18.0)
                     ),
                 ),
-                new Text("Created : $createdAt")
+                new Text("Created : $created_at")
               ],
             )
           ],

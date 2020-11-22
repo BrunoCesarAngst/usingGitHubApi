@@ -7,27 +7,26 @@ import 'package:http/http.dart' as http;
 void main() {
   runApp(new Github());
 }
-
-
 class Github extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: "Github API",
-      home: new GithubAPI(),
+      title: "Using Github API",
+      home: new GithubApi(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
-class GithubAPI extends StatefulWidget {
+class GithubApi extends StatefulWidget {
   @override
-  State createState() => new GithubAPIState();
+  State createState() => new GithubApiState();
 }
 
-class GithubAPIState extends State<GithubAPI> with TickerProviderStateMixin {
+class GithubApiState extends State<GithubApi> with TickerProviderStateMixin {
   final List<ProfileCard> _card = <ProfileCard>[];
   final TextEditingController _textController = new TextEditingController();
   var resBody;
-  bool searching =  false, apiNoLimit = false;
+  bool searching = false, apiNoLimit = false;
   String user;
   Future _getUser(String text) async{
     setState(() {
@@ -35,20 +34,20 @@ class GithubAPIState extends State<GithubAPI> with TickerProviderStateMixin {
     });
     user = text;
     _textController.clear();
-    String url = "https://api.github.com/users/"+text;
+    String url = "https://api.github.com/users/" + text;
       var res = await http
           .get(Uri.encodeFull(url), headers: {"Accept": "application/json"});
       setState(() {
         resBody = json.decode(res.body);
       });
-      if(resBody['avatar_url'] !=  null) {
+      if(resBody['avatar_url'] != null) {
         ProfileCard card = new ProfileCard(
-          user:user,
+          user: user,
           text: resBody['name'],
           image: resBody['avatar_url'],
-          publicRepos: resBody['publicRepos'],
+          public_repos: resBody['public_repos'],
           following: resBody['following'],
-          followers:resBody['followers'],
+          followers: resBody['followers'],
           animationController: new AnimationController(
             duration: new Duration(milliseconds: 700),
             vsync: this,
@@ -101,28 +100,28 @@ class GithubAPIState extends State<GithubAPI> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-          title: new Text("Github API"),
+          title: new Text("Using Github API"),
           elevation: 4.0
       ),
       body: new Container(
-          child: new Column(
-              children: <Widget>[
-                new Container(
-                  decoration: new BoxDecoration(
-                      color: Theme.of(context).cardColor),
-                  child: _buildTextComposer(),
-                ),
-                new Divider(height: 2.0),
-                loading(),
-                new Flexible(
-                    child: new ListView.builder(
-                      padding: new EdgeInsets.all(8.0),
-                      itemBuilder: (_, int index) => _card[index],
-                      itemCount: _card.length,
-                    )
-                ),
-              ]
-          ),
+        child: new Column(
+          children: <Widget>[
+            new Container(
+              decoration: new BoxDecoration(
+                  color: Theme.of(context).cardColor),
+              child: _buildTextComposer(),
+            ),
+            new Divider(height: 2.0),
+            loading(),
+            new Flexible(
+              child: new ListView.builder(
+                padding: new EdgeInsets.all(8.0),
+                itemBuilder: (_, int index) => _card[index],
+                itemCount: _card.length,
+              )
+            ),
+          ]
+        ),
       )
     );
   }
@@ -131,30 +130,28 @@ class GithubAPIState extends State<GithubAPI> with TickerProviderStateMixin {
       return new Container(
         height: 60.0,
         child:new Center(
-            child:new CircularProgressIndicator()
+          child:new CircularProgressIndicator()
         ),
       );
     }else if(apiNoLimit) {
       return new Card(
         child: new Container(
-            height: 80.0,
-            color: Colors.red,
-            child: new Center(
-              child: new Text(
-                "API LIMIT EXCEDED",
-                style: new TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    fontSize: 22.0
-                ),
+          height: 80.0,
+          color: Colors.red,
+          child: new Center(
+            child: new Text(
+              "API LIMIT EXCEDED",
+              style: new TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 22.0
               ),
-            )
+            ),
+          )
         ),
       );
-    }else{
-        return new Container(
-
-        );
+    } else {
+        return new Container();
       }
     }
 }

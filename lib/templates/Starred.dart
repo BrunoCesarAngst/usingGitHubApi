@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class Starred extends StatelessWidget {
 
   String name, description, language;
-  final int stargazersCount, forksCount;
+  final int stargazers_count, forks_count;
 
-  Starred(this.name, this.stargazersCount, this.forksCount, this.language);
+  Starred(this.name, this.stargazers_count, this.forks_count, this.language);
 
 @override
   Widget build(BuildContext context) {
@@ -36,11 +36,11 @@ class Starred extends StatelessWidget {
                     new Row(
                       children: <Widget>[
                         new Text(
-                          "Star : $stargazersCount",
+                          "Star : $stargazers_count",
                           textAlign: TextAlign.left,
                         ),
                         new Text(
-                          "Fork : $forksCount",
+                          "Fork : $forks_count",
                           textAlign: TextAlign.right,
                         ),
                       ],
